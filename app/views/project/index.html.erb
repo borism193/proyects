@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="title">
+     <h1>Add a new project</h1>
+    </div>
+
+    <div class="form-with">
+      <ul>
+       <%=  form_with(model: @project, url: project_create_path, local: true) do |f| %>
+        <li>
+            <%= f.label :name, "Name" %>
+            <%= f.text_field :name, placeholder: "Enter a name", size: "30x5" %>
+        </li>
+        <li>
+            <%= f.label :name, "Description" %>
+            <%= f.text_area :description, 
+                placeholder: "Add a full description of the project",
+                size: "40x5" 
+            %>
+        </li>
+        <li>
+            <%= f.label :name, 'Start on' %>
+            <%= f.date_select :start %>
+        </li>
+        <li>
+            <%= f.label :name, "End on" %>
+            <%= f.date_select :end %>
+        </li>
+        <li>
+            <%= f.label :state, "Estado" %>
+            <%= f.select :state, options_for_select(@states) %>
+        </li>
+      </ul>
+        <button type="submit"> Save</button>
+       <% end %>
+    </div>
+</div>
